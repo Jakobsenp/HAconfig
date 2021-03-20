@@ -1,6 +1,5 @@
 #SMA solceller
--platform: sma
-  #name: SMA
+- platform: sma
   host: 192.168.1.71
   password: !secret smasolceller
   sensors:
