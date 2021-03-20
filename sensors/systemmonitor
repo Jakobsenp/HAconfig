@@ -1,7 +1,0 @@
-- platform: systemmonitor
-resources:
-- type: processor_temperature
-- type: last_boot
-- type: memory_use
-- type: memory_use_percent
-- type: memory_free
