@@ -1,0 +1,106 @@
+- platform: rest
+  name: Renovation
+  resource: https://usage.dk/jaff/?address=Boikenvej%2013&county=randers&index=
+  value_template: '{{ value_json.address }}'
+  scan_interval: 1800
+  json_attributes:
+    - services
+- platform: template
+  sensors:
+    renovation_genbrug_0:
+      friendly_name: Renovation - Genbrug
+      value_template: >-
+        {% set months = ["Januar",
+        "Februar","Marts","April","Maj","Juni","Juli", "August", "September",
+        "Oktober", "November", "December"] %} {% set date =
+        strptime(states.sensor.renovation.attributes["services"]["genbrug_0"]["next"]["date"],'%Y-%m-%d')
+        %} {% set day =
+        states.sensor.renovation.attributes["services"]["genbrug_0"]["next"]["day"]
+        %} {{ day }} d. {{date.day}}. {{months[date.month - 1]}} ( om {{
+        ((date.timestamp() - now().timestamp()) / (24 * 60 *
+        60))|round(0,'ceil') }} dage )
+      attribute_templates:
+        day: >-
+          {{
+          states.sensor.renovation.attributes["services"]["genbrug_0"]["next"]["day"]
+          }}
+        date: >-
+          {{
+          states.sensor.renovation.attributes["services"]["genbrug_0"]["next"]["date"]
+          }}
+        schedule: >-
+          {{
+          states.sensor.renovation.attributes["services"]["genbrug_0"]["schedule"]
+          }}
+    renovation_restmadaffald_0:
+      friendly_name: Renovation - Rest/madaffald
+      value_template: >-
+        {% set months = ["Januar",
+        "Februar","Marts","April","Maj","Juni","Juli", "August", "September",
+        "Oktober", "November", "December"] %} {% set date =
+        strptime(states.sensor.renovation.attributes["services"]["rest/madaffald_0"]["next"]["date"],'%Y-%m-%d')
+        %} {% set day =
+        states.sensor.renovation.attributes["services"]["rest/madaffald_0"]["next"]["day"]
+        %} {{ day }} d. {{date.day}}. {{months[date.month - 1]}} ( om {{
+        ((date.timestamp() - now().timestamp()) / (24 * 60 *
+        60))|round(0,'ceil') }} dage )
+      attribute_templates:
+        day: >-
+          {{
+          states.sensor.renovation.attributes["services"]["rest/madaffald_0"]["next"]["day"]
+          }}
+        date: >-
+          {{
+          states.sensor.renovation.attributes["services"]["rest/madaffald_0"]["next"]["date"]
+          }}
+        schedule: >-
+          {{
+          states.sensor.renovation.attributes["services"]["rest/madaffald_0"]["schedule"]
+          }}
+    renovation_storskrald_0:
+      friendly_name: Renovation - Storskrald
+      value_template: >-
+        {% set months = ["Januar",
+        "Februar","Marts","April","Maj","Juni","Juli", "August", "September",
+        "Oktober", "November", "December"] %} {% set date =
+        strptime(states.sensor.renovation.attributes["services"]["storskrald_0"]["next"]["date"],'%Y-%m-%d')
+        %} {% set day =
+        states.sensor.renovation.attributes["services"]["storskrald_0"]["next"]["day"]
+        %} {{ day }} d. {{date.day}}. {{months[date.month - 1]}} ( om {{
+        ((date.timestamp() - now().timestamp()) / (24 * 60 *
+        60))|round(0,'ceil') }} dage )
+      attribute_templates:
+        day: >-
+          {{
+          states.sensor.renovation.attributes["services"]["storskrald_0"]["next"]["day"]
+          }}
+        date: >-
+          {{
+          states.sensor.renovation.attributes["services"]["storskrald_0"]["next"]["date"]
+          }}
+        schedule: >-
+          {{
+          states.sensor.renovation.attributes["services"]["storskrald_0"]["schedule"]
+          }}
+    renovation_internservice_0:
+      friendly_name: Renovation - Intern Service
+      value_template: >-
+        {% set months = ["Januar",
+        "Februar","Marts","April","Maj","Juni","Juli", "August", "September",
+        "Oktober", "November", "December"] %} {% set date =
+        strptime(states.sensor.renovation.attributes["services"]["intern
+        service_0"]["next"]["date"],'%Y-%m-%d') %} {% set day =
+        states.sensor.renovation.attributes["services"]["intern
+        service_0"]["next"]["day"] %} {{ day }} d. {{date.day}}.
+        {{months[date.month - 1]}} ( om {{ ((date.timestamp() -
+        now().timestamp()) / (24 * 60 * 60))|round(0,'ceil') }} dage )
+      attribute_templates:
+        day: >-
+          {{ states.sensor.renovation.attributes["services"]["intern
+          service_0"]["next"]["day"] }}
+        date: >-
+          {{ states.sensor.renovation.attributes["services"]["intern
+          service_0"]["next"]["date"] }}
+        schedule: >-
+          {{ states.sensor.renovation.attributes["services"]["intern
+          service_0"]["schedule"] }}

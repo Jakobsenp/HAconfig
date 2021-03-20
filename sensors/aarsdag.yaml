@@ -1,0 +1,10 @@
+#Årsdag
+#anniversaries:
+ # sensor:
+  #  friendly_name: Vores Årsdag
+   #  date: '2019-03-02'
+     
+platform: anniversaries
+sensor:
+friendly_name: Vores Årsdag
+date: '2019-03-02'

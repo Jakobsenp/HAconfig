@@ -1,0 +1,15 @@
+#Beregning Wh-kWh
+platform: template
+sensors:
+energy_tot_wh:
+friendly_name: "Total Forbrug"
+unit_of_measurement: "Wh"
+value_template: "{{ states('sensor.eloverblik_energy_total') |float * 1000 }}"
+
+#Beregning Wh-kWh
+#platform: template
+#sensors:
+#daglig_prod_kwh:
+# friendly_name: "Total Prod"
+ #  unit_of_measurement: "kWh"
+  # value_template: "{{ states('sensor.daily_yield') |float / 1000 }}"   
