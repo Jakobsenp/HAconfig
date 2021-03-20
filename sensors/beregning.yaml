@@ -1,10 +1,10 @@
 #Beregning Wh-kWh
-platform: template
-sensors:
-energy_tot_wh:
-friendly_name: "Total Forbrug"
-unit_of_measurement: "Wh"
-value_template: "{{ states('sensor.eloverblik_energy_total') |float * 1000 }}"
+- platform: template
+  sensors:
+    energy_tot_wh:
+      friendly_name: "Total Forbrug"
+      unit_of_measurement: "Wh"
+      value_template: "{{ states('sensor.eloverblik_energy_total') |float * 1000 }}"
 
 #Beregning Wh-kWh
 #platform: template
