@@ -1,0 +1,13 @@
+sensor.daily_yield:
+  friendly_name: Daglig Produktion
+  unit_of_measurement: Wh
+sensor.total_yield:
+  friendly_name: Total Produktion
+
+#farve på Mezzomix
+binary_sensor.mezzomix_security_status:
+  friendly_name: Security Status
+  templates:
+    icon: mdi:Security
+    hs_color: >
+      if (state === 'off') return [48,76,251];

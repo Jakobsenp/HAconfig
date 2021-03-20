@@ -1,0 +1,66 @@
+- id: '1614245636233'
+  alias: Tænd - Natlampe
+  description: Tænder Natlampe på badeværelse mellem 22.30 og 6
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.hue_motion_sensor_1_motion
+    to: 'on'
+  condition:
+  - condition: time
+    after: '22:30'
+    before: 06:00
+  action:
+  - type: turn_on
+    device_id: f3569693bd0ffde177691c325cc2bbc0
+    entity_id: light.hue_filament_bulb_1_3
+    domain: light
+  mode: single
+- id: '1614437079518'
+  alias: Sluk lys - Natlampe efter 1 min
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.hue_motion_sensor_1_motion
+    to: 'off'
+    for: 00:01:00
+  condition: []
+  action:
+  - type: turn_off
+    device_id: f3569693bd0ffde177691c325cc2bbc0
+    entity_id: light.hue_filament_bulb_1_3
+    domain: light
+  mode: single
+- id: '1614625650926'
+  alias: Tænd lys udenfor
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+  condition: []
+  action:
+  - type: turn_on
+    device_id: 9e2c8d62e1d1e2795ce7b946b3cb2c5f
+    entity_id: light.terrasse
+    domain: light
+  - type: turn_on
+    device_id: 0b1199e42fef2fe9e002720cff202a6e
+    entity_id: light.fordor
+    domain: light
+  mode: single
+- id: '1614625709425'
+  alias: Sluk lys udenfor
+  description: ''
+  trigger:
+  - platform: time
+    at: '22:30'
+  condition: []
+  action:
+  - type: turn_off
+    device_id: 0b1199e42fef2fe9e002720cff202a6e
+    entity_id: light.fordor
+    domain: light
+  - type: turn_off
+    device_id: 9e2c8d62e1d1e2795ce7b946b3cb2c5f
+    entity_id: light.terrasse
+    domain: light
+  mode: single
