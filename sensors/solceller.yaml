@@ -1,16 +1,11 @@
 #SMA solceller
 -platform: sma
-#name: SMA
-host: 192.168.1.71
-password: !secret smasolceller
-sensors:
-- daily_yield
-    #friendly_name: Daglig Prod
-- current_consumption
-    #friendly_name: Forbrug lige nu
-- total_consumption
-    #friendly_name: Forbrug total
-- pv_power
-    #friendly_name: Aktuel Prod
-- total_yield
-    #friendly_name: Total Prod
+  #name: SMA
+  host: 192.168.1.71
+  password: !secret smasolceller
+  sensors:
+    - daily_yield
+    - current_consumption
+    - total_consumption
+    - pv_power
+    - total_yield
